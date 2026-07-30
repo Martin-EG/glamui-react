@@ -1,0 +1,1259 @@
+{
+  "generatedAt": "2026-07-30T17:03:55.797Z",
+  "generatedBy": "scripts/generate-token-manifest.cjs",
+  "entryCount": 176,
+  "entries": [
+    {
+      "path": "breakpoints.lg",
+      "layer": "semantic",
+      "file": "src/styles/breakpoints.ts",
+      "value": "1024",
+      "deprecated": false
+    },
+    {
+      "path": "breakpoints.md",
+      "layer": "semantic",
+      "file": "src/styles/breakpoints.ts",
+      "value": "768",
+      "deprecated": false
+    },
+    {
+      "path": "breakpoints.sm",
+      "layer": "semantic",
+      "file": "src/styles/breakpoints.ts",
+      "value": "640",
+      "deprecated": false
+    },
+    {
+      "path": "breakpoints.xl",
+      "layer": "semantic",
+      "file": "src/styles/breakpoints.ts",
+      "value": "1280",
+      "deprecated": false
+    },
+    {
+      "path": "breakpoints.xs",
+      "layer": "semantic",
+      "file": "src/styles/breakpoints.ts",
+      "value": "0",
+      "deprecated": false
+    },
+    {
+      "path": "colors.background.danger",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.red[100]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.errorBg` instead."
+    },
+    {
+      "path": "colors.background.info",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.blue[100]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.infoBg` instead."
+    },
+    {
+      "path": "colors.background.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[200]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.background.page",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.white",
+      "deprecated": false
+    },
+    {
+      "path": "colors.background.subtle",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.background.success",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.green[100]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.successBg` instead."
+    },
+    {
+      "path": "colors.background.warning",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.amber[100]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.warningBg` instead."
+    },
+    {
+      "path": "colors.border.danger",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.red[500]",
+      "deprecated": true,
+      "deprecatedNote": "Unused."
+    },
+    {
+      "path": "colors.border.default",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[200]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.border.focus",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.pink[500]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.border.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[400]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.border.subtle",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.brand.primary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.pink[500]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.brand.primaryAlpha",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.pink.Alpha25",
+      "deprecated": false
+    },
+    {
+      "path": "colors.brand.secondary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.pink[600]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.errorBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.red[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.errorText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.red[700]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.infoBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.blue[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.infoText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.blue[700]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.successBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.green[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.successText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.green[700]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.warningBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.amber[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.feedback.warningText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.amber[700]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.overlay.loading",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "'rgba(255, 255, 255, 0.78)'",
+      "deprecated": false
+    },
+    {
+      "path": "colors.overlay.scrim",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "'rgba(0, 0, 0, 0.45)'",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.canvas",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "'#000000'",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.default",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.white",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.elevated",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.white",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.hover",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[100]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.inverse",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[900]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[200]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.surface.subtle",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[300]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Also the one non-monotonic step in the gray ramp (lighter than gray[200]) — do not reach for it."
+    },
+    {
+      "path": "colors.text.danger",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.red[700]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.text.info",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.blue[700]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.infoText` instead."
+    },
+    {
+      "path": "colors.text.inverse",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.white",
+      "deprecated": false
+    },
+    {
+      "path": "colors.text.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[500]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.text.onBrand",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[900]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.text.primary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[900]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.text.secondary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.gray[600]",
+      "deprecated": false
+    },
+    {
+      "path": "colors.text.success",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.green[700]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.successText` instead."
+    },
+    {
+      "path": "colors.text.warning",
+      "layer": "semantic",
+      "file": "src/tokens/colors.ts",
+      "value": "palette.amber[700]",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Use `colors.feedback.warningText` instead."
+    },
+    {
+      "path": "colorsDark.background.danger",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(255, 93, 115, 0.12)'",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.background.info",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(185, 140, 255, 0.12)'",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.background.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.slate",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.background.page",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.midnight",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.background.subtle",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.graphite",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.background.success",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(70, 211, 154, 0.12)'",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.background.warning",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(255, 184, 107, 0.12)'",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.border.danger",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.coral",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.border.default",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.borderSubtle",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.border.focus",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.pink.glam",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.border.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.borderStrong",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.border.subtle",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.borderSubtle",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.brand.primary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.pink.glam",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.brand.primaryAlpha",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(255, 45, 161, 0.25)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.brand.secondary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.pink.rose",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.errorBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(255, 93, 115, 0.12)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.errorText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.coral",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.infoBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(185, 140, 255, 0.12)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.infoText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.lavender",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.successBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(70, 211, 154, 0.12)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.successText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.mint",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.warningBg",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(255, 184, 107, 0.12)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.feedback.warningText",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.peach",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.overlay.loading",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(17, 19, 26, 0.78)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.overlay.scrim",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'rgba(0, 0, 0, 0.45)'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.canvas",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "'#000000'",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.default",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.graphite",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.elevated",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.slate",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.hover",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.slate",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.inverse",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.text.primary",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.borderSubtle",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.surface.subtle",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.graphite",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.danger",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.coral",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.info",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.lavender",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.text.inverse",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.midnight",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.muted",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.text.muted",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.onBrand",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.neutral.midnight",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.primary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.text.primary",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.secondary",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.text.secondary",
+      "deprecated": false
+    },
+    {
+      "path": "colorsDark.text.success",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.mint",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "colorsDark.text.warning",
+      "layer": "semantic",
+      "file": "src/tokens/colors.dark.ts",
+      "value": "darkPalette.peach",
+      "deprecated": true,
+      "deprecatedNote": "Unused in the light theme this mirrors. Mapped for shape parity only."
+    },
+    {
+      "path": "darkPalette.coral",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#FF5D73'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.lavender",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#B98CFF'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.mint",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#46D39A'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.neutral.borderStrong",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#474C5C'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.neutral.borderSubtle",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#323645'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.neutral.graphite",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#1A1D26'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.neutral.midnight",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#11131A'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.neutral.slate",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#252935'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.peach",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#FFB86B'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.pink.glam",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#FF2DA1'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.pink.rose",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#FF73C5'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.text.disabled",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#5B6070'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.text.muted",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#8D93A5'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.text.primary",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#F8F8FA'",
+      "deprecated": false
+    },
+    {
+      "path": "darkPalette.text.secondary",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.dark.ts",
+      "value": "'#C3C7D3'",
+      "deprecated": false
+    },
+    {
+      "path": "focus.ring.offset",
+      "layer": "semantic",
+      "file": "src/tokens/focus.ts",
+      "value": "'2px'",
+      "deprecated": false
+    },
+    {
+      "path": "focus.ring.width",
+      "layer": "semantic",
+      "file": "src/tokens/focus.ts",
+      "value": "'2px'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.duration.base",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'160ms'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.duration.fast",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'120ms'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.duration.instant",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'100ms'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.duration.moderate",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'180ms'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.duration.shimmer",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'1.4s'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.duration.slow",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'200ms'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.easing.decelerate",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'ease-out'",
+      "deprecated": false
+    },
+    {
+      "path": "motion.easing.standard",
+      "layer": "semantic",
+      "file": "src/tokens/motion.ts",
+      "value": "'ease'",
+      "deprecated": false
+    },
+    {
+      "path": "opacity.caption",
+      "layer": "semantic",
+      "file": "src/tokens/opacity.ts",
+      "value": "0.75",
+      "deprecated": false
+    },
+    {
+      "path": "opacity.decorative",
+      "layer": "semantic",
+      "file": "src/tokens/opacity.ts",
+      "value": "0.7",
+      "deprecated": false
+    },
+    {
+      "path": "opacity.disabled",
+      "layer": "semantic",
+      "file": "src/tokens/opacity.ts",
+      "value": "0.6",
+      "deprecated": false
+    },
+    {
+      "path": "opacity.disabledButton",
+      "layer": "semantic",
+      "file": "src/tokens/opacity.ts",
+      "value": "0.5",
+      "deprecated": false
+    },
+    {
+      "path": "opacity.disabledDay",
+      "layer": "semantic",
+      "file": "src/tokens/opacity.ts",
+      "value": "0.45",
+      "deprecated": false
+    },
+    {
+      "path": "palette.amber.100",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#fef3c7'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.amber.700",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#92400e'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.blue.100",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#e0f2fe'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.blue.700",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#075985'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.100",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#f3f4f6'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.200",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#e5e7eb'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.300",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#f9fafb'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.400",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#9ca3af'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.500",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#64748b'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.600",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#4b5563'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.gray.900",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#111827'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.green.100",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#dcfce7'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.green.700",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#166534'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.pink.500",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#EA638C'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.pink.600",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#F6339A'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.pink.Alpha25",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'rgba(234, 99, 140, 0.25)'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.red.100",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#fde2e2'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.red.500",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#ef4444'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.red.700",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#991b1b'",
+      "deprecated": false
+    },
+    {
+      "path": "palette.white",
+      "layer": "primitive",
+      "file": "src/tokens/colors.palette.ts",
+      "value": "'#ffffff'",
+      "deprecated": false
+    },
+    {
+      "path": "radius.lg",
+      "layer": "semantic",
+      "file": "src/tokens/radius.ts",
+      "value": "'12px'",
+      "deprecated": false
+    },
+    {
+      "path": "radius.md",
+      "layer": "semantic",
+      "file": "src/tokens/radius.ts",
+      "value": "'8px'",
+      "deprecated": false
+    },
+    {
+      "path": "radius.sm",
+      "layer": "semantic",
+      "file": "src/tokens/radius.ts",
+      "value": "'6px'",
+      "deprecated": false
+    },
+    {
+      "path": "radius.xl",
+      "layer": "semantic",
+      "file": "src/tokens/radius.ts",
+      "value": "'16px'",
+      "deprecated": false
+    },
+    {
+      "path": "shadows.lg",
+      "layer": "semantic",
+      "file": "src/tokens/shadows.ts",
+      "value": "'0 10px 15px rgba(0, 0, 0, 0.15)'",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Only `shadows.md` currently has a consumer."
+    },
+    {
+      "path": "shadows.md",
+      "layer": "semantic",
+      "file": "src/tokens/shadows.ts",
+      "value": "'0 4px 6px rgba(0, 0, 0, 0.1)'",
+      "deprecated": false
+    },
+    {
+      "path": "shadows.sm",
+      "layer": "semantic",
+      "file": "src/tokens/shadows.ts",
+      "value": "'0 1px 2px rgba(0, 0, 0, 0.05)'",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Only `shadows.md` currently has a consumer."
+    },
+    {
+      "path": "shadowsDark.lg",
+      "layer": "semantic",
+      "file": "src/tokens/shadows.dark.ts",
+      "value": "'0 10px 15px rgba(0, 0, 0, 0.35)'",
+      "deprecated": false
+    },
+    {
+      "path": "shadowsDark.md",
+      "layer": "semantic",
+      "file": "src/tokens/shadows.dark.ts",
+      "value": "'0 4px 6px rgba(0, 0, 0, 0.35)'",
+      "deprecated": false
+    },
+    {
+      "path": "shadowsDark.sm",
+      "layer": "semantic",
+      "file": "src/tokens/shadows.dark.ts",
+      "value": "'0 1px 2px rgba(0, 0, 0, 0.2)'",
+      "deprecated": false
+    },
+    {
+      "path": "size.calendarDay",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'28px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.circle.lg",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'120px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.circle.md",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'72px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.circle.sm",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'40px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.field",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'35px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.iconSlot",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'32px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.minTouchTarget",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'44px'",
+      "deprecated": false
+    },
+    {
+      "path": "spacing.lg",
+      "layer": "semantic",
+      "file": "src/tokens/spacing.ts",
+      "value": "'16px'",
+      "deprecated": false
+    },
+    {
+      "path": "spacing.md",
+      "layer": "semantic",
+      "file": "src/tokens/spacing.ts",
+      "value": "'12px'",
+      "deprecated": false
+    },
+    {
+      "path": "spacing.sm",
+      "layer": "semantic",
+      "file": "src/tokens/spacing.ts",
+      "value": "'8px'",
+      "deprecated": false
+    },
+    {
+      "path": "spacing.xl",
+      "layer": "semantic",
+      "file": "src/tokens/spacing.ts",
+      "value": "'24px'",
+      "deprecated": false
+    },
+    {
+      "path": "spacing.xs",
+      "layer": "semantic",
+      "file": "src/tokens/spacing.ts",
+      "value": "'4px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.lineHeights.normal",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'1.5'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.lineHeights.relaxed",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'1.7'",
+      "deprecated": true,
+      "deprecatedNote": "Unused. Only `tight` and `normal` currently have consumers."
+    },
+    {
+      "path": "typography.lineHeights.tight",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'1.2'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.sizes.lg",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'18px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.sizes.md",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'16px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.sizes.sm",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'14px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.sizes.xl",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'24px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.sizes.xs",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'12px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.sizes.xxl",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "'32px'",
+      "deprecated": false
+    },
+    {
+      "path": "typography.weights.bold",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "700",
+      "deprecated": false
+    },
+    {
+      "path": "typography.weights.medium",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "500",
+      "deprecated": false
+    },
+    {
+      "path": "typography.weights.regular",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "400",
+      "deprecated": false
+    },
+    {
+      "path": "typography.weights.semibold",
+      "layer": "semantic",
+      "file": "src/tokens/typography.ts",
+      "value": "600",
+      "deprecated": false
+    },
+    {
+      "path": "zIndex.dropdown",
+      "layer": "semantic",
+      "file": "src/tokens/zIndex.ts",
+      "value": "1000",
+      "deprecated": false
+    },
+    {
+      "path": "zIndex.modal",
+      "layer": "semantic",
+      "file": "src/tokens/zIndex.ts",
+      "value": "1000",
+      "deprecated": false
+    },
+    {
+      "path": "zIndex.popover",
+      "layer": "semantic",
+      "file": "src/tokens/zIndex.ts",
+      "value": "1100",
+      "deprecated": false
+    },
+    {
+      "path": "zIndex.tooltip",
+      "layer": "semantic",
+      "file": "src/tokens/zIndex.ts",
+      "value": "1200",
+      "deprecated": false
+    }
+  ]
+}

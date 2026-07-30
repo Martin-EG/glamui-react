@@ -1,0 +1,105 @@
+{
+  "name": "@glamui/react",
+  "version": "0.1.0",
+  "private": false,
+  "description": "GlamVault shared React UI component library",
+  "license": "MIT",
+  "author": "Martin-EG",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Martin-EG/glamui-react.git"
+  },
+  "homepage": "https://github.com/Martin-EG/glamui-react#readme",
+  "bugs": {
+    "url": "https://github.com/Martin-EG/glamui-react/issues"
+  },
+  "keywords": [
+    "react",
+    "ui",
+    "component-library",
+    "styled-components",
+    "design-system"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./tokens": {
+      "types": "./dist/tokens/index.d.ts",
+      "import": "./dist/tokens/index.js",
+      "require": "./dist/tokens/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint . --ext .ts,.tsx --cache",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage",
+    "typecheck": "tsc --noEmit",
+    "generate:component": "node scripts/generate-component.cjs",
+    "generate:manifest": "node scripts/generate-token-manifest.cjs",
+    "prebuild": "node scripts/generate-token-manifest.cjs",
+    "check:contrast": "node scripts/check-contrast.cjs",
+    "storybook": "storybook dev -p 6006",
+    "build:storybook": "storybook build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "styled-components": ">=6"
+  },
+  "dependencies": {
+    "react-easy-crop": "^5.5.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "@babel/preset-typescript": "^7.28.5",
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/react-vite": "^10.1.11",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/styled-components": "^5.1.36",
+    "babel-jest": "^30.2.0",
+    "eslint": "^9",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-storybook": "^10.1.11",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "jest-styled-components": "^7.2.0",
+    "prettier": "^3.8.1",
+    "react": "^19",
+    "react-dom": "^19",
+    "storybook": "^10.1.11",
+    "styled-components": "^6.2.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^7.3.1"
+  },
+  "packageManager": "pnpm@11.10.0"
+}

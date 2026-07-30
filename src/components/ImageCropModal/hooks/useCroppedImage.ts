@@ -1,0 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
+
+import { useCallback } from 'react';
+
+type UseCroppedImage = () => (imageSrc: string, crop: any) => Promise<Blob>;
+export const useCroppedImage: UseCroppedImage = () => {
+  return useCallback(async (imageSrc: string, crop: any) => {
+    const image = new Image();
+    image.src = imageSrc;
+    await new Promise((res) => (image.onload = res));
+
+    const canvas = document.createElement('canvas');
+    canvas.width = crop.width;
+    canvas.height = crop.height;
+
+    const ctx = canvas.getContext('2d')!;
+    ctx.drawImage(
+      image,
+      crop.x,
+      crop.y,
+      crop.width,
+      crop.height,
+      0,
+      0,
+      crop.width,
+      crop.height,
+    );
+
+    return new Promise((resolve) =>
+      canvas.toBlob((blob) => resolve(blob!), 'image/jpeg'),
+    );
+  }, []);
+};
