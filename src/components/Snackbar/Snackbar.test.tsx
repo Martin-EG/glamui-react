@@ -60,6 +60,7 @@ describe('Snackbar', () => {
         message="Note archived"
         dismissible
         dismissAriaLabel="Dismiss notification"
+        onClose={jest.fn()}
       />,
     );
 

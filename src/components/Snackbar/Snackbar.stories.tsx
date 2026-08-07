@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
 
@@ -62,6 +64,10 @@ export const AutoHide: Story = {
     open: true,
     message: 'This will auto-dismiss in 3 seconds',
     autoHideDuration: 3000,
-    onClose: fn(),
+  },
+  render: (args) => {
+    const [open, setOpen] = useState(args.open);
+
+    return <Snackbar {...args} open={open} onClose={() => setOpen(false)} />;
   },
 };

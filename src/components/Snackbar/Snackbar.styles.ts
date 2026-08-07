@@ -84,6 +84,8 @@ export const Message = styled.span`
 
 export const ActionButton = styled.button`
   flex-shrink: 0;
+  box-sizing: border-box;
+  min-width: ${({ theme }) => theme.size.minTouchTarget};
   min-height: ${({ theme }) => theme.size.minTouchTarget};
   padding: 0 ${({ theme }) => theme.spacing.sm};
   border: none;
