@@ -83,6 +83,9 @@ export * from './components/SegmentedControl/SegmentedControl.types';
 export { default as Select } from './components/Select';
 export * from './components/Select/Select.types';
 
+export { default as Snackbar } from './components/Snackbar';
+export * from './components/Snackbar/Snackbar.types';
+
 export { default as Text } from './components/Text';
 export * from './components/Text/Text.types';
 export type { TextProps } from './components/Text/Text';

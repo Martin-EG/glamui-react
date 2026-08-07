@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T17:03:55.797Z",
+  "generatedAt": "2026-08-07T16:34:51.802Z",
   "generatedBy": "scripts/generate-token-manifest.cjs",
-  "entryCount": 176,
+  "entryCount": 177,
   "entries": [
     {
       "path": "breakpoints.lg",
@@ -1246,6 +1246,13 @@
       "layer": "semantic",
       "file": "src/tokens/zIndex.ts",
       "value": "1100",
+      "deprecated": false
+    },
+    {
+      "path": "zIndex.toast",
+      "layer": "semantic",
+      "file": "src/tokens/zIndex.ts",
+      "value": "1150",
       "deprecated": false
     },
     {
