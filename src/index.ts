@@ -12,6 +12,9 @@ export * from './components/Accordion/Accordion.types';
 export { default as Avatar } from './components/Avatar';
 export * from './components/Avatar/Avatar.types';
 
+export { default as Badge } from './components/Badge';
+export * from './components/Badge/Badge.types';
+
 export { default as Button } from './components/Button';
 export * from './components/Button/Button.types';
 
