@@ -35,7 +35,7 @@ You can see live demos and usage in Storybook.
 | `action`              | `{ label: string; onClick: () => void }`                        | `undefined` |    No    | An optional inline action, e.g. Undo.                                          |
 | `dismissible`         | `boolean`                                                        | `false`     |    No    | If `true`, a close button is rendered.                                         |
 | `dismissAriaLabel`    | `string`                                                         | `'Close'`   |    No    | Accessible label for the close button.                                         |
-| `onClose`             | `() => void`                                                     | `undefined` |    No    | Called when the close button is clicked, Escape is pressed, or the auto-hide timer elapses. |
+| `onClose`             | `() => void`                                                     | `undefined` |    No    | Called when the close button is clicked, Escape is pressed, or the auto-hide timer elapses. Snackbar visibility is fully controlled via `open`, so `onClose` must update the state driving it — the Snackbar does not hide itself. Required in practice whenever `dismissible` or `autoHideDuration` is set: without it, the close button is not rendered and the auto-hide timer has nothing to call. |
 | `autoHideDuration`    | `number`                                                         | `undefined` |    No    | Milliseconds before `onClose` is called automatically. Omit to require manual dismissal. |
 
 ## Accessibility

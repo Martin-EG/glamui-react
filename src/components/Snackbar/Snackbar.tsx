@@ -24,18 +24,26 @@ const Snackbar: FC<SnackbarProps> = ({
   autoHideDuration,
 }) => {
   const snackbarRef = useRef<HTMLDivElement>(null);
+  const onCloseRef = useRef(onClose);
 
   useSnackbarFocusTrap({ isOpen: open, panelRef: snackbarRef, onClose });
+
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     if (!open || !autoHideDuration) {
       return;
     }
 
-    const timer = window.setTimeout(() => onClose?.(), autoHideDuration);
+    const timer = window.setTimeout(
+      () => onCloseRef.current?.(),
+      autoHideDuration,
+    );
 
     return () => window.clearTimeout(timer);
-  }, [open, autoHideDuration, onClose]);
+  }, [open, autoHideDuration]);
 
   if (!open) return null;
 
@@ -58,7 +66,7 @@ const Snackbar: FC<SnackbarProps> = ({
         </ActionButton>
       )}
 
-      {dismissible && (
+      {dismissible && onClose && (
         <DismissButton
           type="button"
           onClick={onClose}
