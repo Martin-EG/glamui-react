@@ -17,7 +17,7 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   }),
 )<StyledButtonProps>`
   cursor: pointer;
-  color: black;
+  color: ${({ theme }) => theme.colors.text.primary};
   display: flex;
   flex-direction: ${({ $iconPosition }) =>
     $iconPosition === 'end' ? 'row-reverse' : undefined};
@@ -55,6 +55,11 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
   &.btn-outline {
     border: 1.5px solid ${({ theme }) => theme.colors.border.default};
     background: ${({ theme }) => theme.colors.background.page};
+  }
+
+  &.btn-danger {
+    background: ${({ theme }) => theme.colors.feedback.errorBg};
+    color: ${({ theme }) => theme.colors.feedback.errorText};
   }
 
   &.btn-transparent {
