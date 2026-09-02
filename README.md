@@ -1,4 +1,4 @@
-# @glamui/react
+# glamui-react
 
 Shared React UI component library for GlamVault, the GlamVault landing page, and other GlamVault surfaces. Extracted from the `glamvault-client` monorepo (`packages/ui`) into its own repository so it can be installed as a standalone npm package.
 
@@ -33,7 +33,7 @@ To scaffold a new component: `pnpm generate:component Foo` — wires it into `sr
 Once published to npm:
 
 ```sh
-npm install @glamui/react styled-components react react-dom
+npm install glamui-react styled-components react react-dom
 ```
 
 Or directly from GitHub before/without an npm release:
@@ -43,7 +43,7 @@ npm install github:Martin-EG/glamui-react
 ```
 
 ```ts
-import { Button, Text, themes } from '@glamui/react';
+import { Button, Text, themes } from 'glamui-react';
 ```
 
 ## Publishing

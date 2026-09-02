@@ -1,5 +1,5 @@
 {
-  "name": "@glamui/react",
+  "name": "glamui-react",
   "version": "0.1.0",
   "private": false,
   "description": "GlamVault shared React UI component library",
@@ -20,9 +20,6 @@
     "styled-components",
     "design-system"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
