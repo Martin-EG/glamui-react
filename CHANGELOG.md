@@ -14,6 +14,14 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
+### Added — `Stack`, a flex layout primitive
+
+Traces to the same audit that produced `Box`: the other repeated shape found duplicated across the reference site (`Form`, `ProfileRow`, `Tile`) was a plain flex row/column wrapper — `display: flex; flex-direction; gap; align-items` hand-written inline against `theme.spacing`, three times on one page. Per the Component Evolution Program's Capabilities → Patterns → Primitives → Components ordering, this is the primitive tier, alongside `Box`. See `Stack`'s own README for the full Design Brief.
+
+- Five composable layout props (`direction`, `gap`, `align`, `justify`, `wrap`) mapping directly to flex properties — no responsive system layered on speculatively.
+- Sensible defaults (`column`, `theme.spacing.md` gap, `stretch` align) rather than an unstyled no-op — a stack with no layout behavior wouldn't be a stack.
+- Reads only the pre-existing `spacing` token — no new tokens. A `Grid` primitive was considered and deferred: the reference site's one CSS-grid usage isn't a second real use case yet.
+
 ### Added — `Box`, a token-driven container primitive
 
 Traces to a repeated capability gap surfaced while auditing hand-rolled `styled-components` on the reference site: the same bordered/padded/rounded/surfaced container shape (`Card`, `CardBody`, `Swatch`, a plan-card wrapper) was hand-built three separate times on one page alone, mirroring the same pattern already duplicated internally inside `Card`, `MessageBar`, and `Modal`. Per the Component Evolution Program's Capabilities → Patterns → Primitives → Components ordering, this is the primitive tier. See `Box`'s own README for the full Design Brief.

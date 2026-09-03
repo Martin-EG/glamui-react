@@ -87,6 +87,8 @@ export * from './components/Select/Select.types';
 
 export { default as Snackbar } from './components/Snackbar';
 export * from './components/Snackbar/Snackbar.types';
+export { default as Stack } from './components/Stack';
+export * from './components/Stack/Stack.types';
 
 export { default as Text } from './components/Text';
 export * from './components/Text/Text.types';
