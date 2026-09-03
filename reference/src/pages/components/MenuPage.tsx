@@ -1,4 +1,4 @@
-import { Edit, Menu, Remove, Box } from '@glamui/react';
+import { Edit, Menu, Remove, Icons } from '@glamui/react';
 
 import { ComponentPage } from '../../shared/ComponentPage';
 import { Example } from '../../shared/Example';
@@ -21,7 +21,7 @@ export function MenuPage() {
   triggerAriaLabel="Open menu"
   items={[
     { label: 'Edit', MenuItemIcon: Edit, onClick: () => {} },
-    { label: 'Archive', MenuItemIcon: Box, onClick: () => {} },
+    { label: 'Archive', MenuItemIcon: Icons.Box, onClick: () => {} },
     { label: 'Delete', MenuItemIcon: Remove, variant: 'danger', onClick: () => {} },
   ]}
 />`}
@@ -30,7 +30,7 @@ export function MenuPage() {
           triggerAriaLabel="Open menu"
           items={[
             { label: 'Edit', MenuItemIcon: Edit, onClick: () => {} },
-            { label: 'Archive', MenuItemIcon: Box, onClick: () => {} },
+            { label: 'Archive', MenuItemIcon: Icons.Box, onClick: () => {} },
             {
               label: 'Delete',
               MenuItemIcon: Remove,
