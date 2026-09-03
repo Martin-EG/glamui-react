@@ -71,6 +71,37 @@ describe('Text', () => {
     });
   });
 
+  it('forwards a consumer className alongside its own', () => {
+    const { container } = render(<Text className="custom">Text</Text>);
+    const text = container.firstChild as HTMLElement;
+    expect(text).toHaveClass('custom');
+    expect(text).toHaveClass('text-body');
+  });
+
+  it('forwards a consumer style alongside its own', () => {
+    const { container } = render(
+      <Text style={{ marginTop: 2 }}>Text</Text>,
+    );
+    const text = container.firstChild as HTMLElement;
+    expect(text).toHaveStyle({ marginTop: '2px' });
+  });
+
+  it('merges a consumer style with the truncate clamp style', () => {
+    const { container } = render(
+      <Text truncate={2} style={{ marginTop: 2 }}>
+        Text
+      </Text>,
+    );
+    const text = container.firstChild as HTMLElement;
+    expect(text).toHaveStyle({ marginTop: '2px', WebkitLineClamp: '2' });
+  });
+
+  it('forwards other standard HTML attributes', () => {
+    const { container } = render(<Text data-testid="text-node">Text</Text>);
+    const text = container.firstChild as HTMLElement;
+    expect(text).toHaveAttribute('data-testid', 'text-node');
+  });
+
   it('renders label with htmlFor', () => {
     const { container } = render(
       <Text as="label" labelFor="input-id">

@@ -172,6 +172,22 @@ export const Code: Story = {
   ),
 };
 
+export const CustomStyling: Story = {
+  args: {
+    children: 'Text',
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '5px', flexDirection: 'column' }}>
+      <Text {...args} variant="heading" weight="bold" size="xl">
+        Custom styling (className / style passthrough):
+      </Text>
+      <Text {...args} style={{ marginTop: 8, textDecoration: 'underline' }}>
+        Styled via the style prop
+      </Text>
+    </div>
+  ),
+};
+
 export const TextTruncated: Story = {
   args: {
     children: 'Text',

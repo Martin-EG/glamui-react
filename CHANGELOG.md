@@ -14,6 +14,14 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
+### Fixed — `Text` silently dropped `className`/`style`/other HTML attributes
+
+`Text.tsx` only ever destructured its own named props — a consumer-passed `className`, `style`, `id`, or `data-*` never reached the rendered element, and worse: styled-components' `.attrs()` merges its return value *over* incoming props, so even wiring `{...rest}` through without also fixing `.attrs()` would have silently swallowed a consumer's `className`/`style` rather than combining them. This is why `Tokens.tsx`'s `Value` (a `span`, small, muted — otherwise exactly `Text`) stayed a hand-rolled `styled.span`: it needed `display: block; margin-top: 2px` with no way to attach it. `Box`/`Stack`/`Clickable` already extend `HTMLAttributes` and forward the rest; `Text` was the odd one out.
+
+- `TextProps` now extends `HTMLAttributes<HTMLElement>` (`Omit`ting `color`, which `Text` already types as `TextColor`).
+- `Text.tsx` spreads `...rest` onto the rendered element.
+- `Text.styles.ts`'s `.attrs()` callback now reads the incoming `className`/`style` and merges them with its own generated class list and truncate-clamp style, instead of overwriting them.
+
 ### Added — `theme.fonts.mono` and `Text as="code"`
 
 Traces to the same reference-site audit as `Box`/`Stack`: `Tokens.tsx`'s `Path` and `shared/CodeBlock.tsx`'s `Pre` each hardcoded the identical `font-family: 'Menlo', 'Consolas', monospace` inline, because `Text` had no `'code'` option in its `as` union and no mono font token existed to read — two independent, already-real consumers, clearing the "a real second use case, not a speculative one" bar for a new token.
