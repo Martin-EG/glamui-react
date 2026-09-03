@@ -13,4 +13,14 @@ export const size = {
     md: '72px',
     lg: '120px',
   },
+  // The compact-control height scale: was hardcoded separately in Button
+  // (as 4 unreferenced literals) and Searchbar (as a 5th, duplicating
+  // Button's `xs`) — named here so both, and any future control that
+  // needs the same scale, reference one value instead of re-guessing it.
+  control: {
+    xs: '36px',
+    sm: '40px',
+    md: '44px',
+    lg: '48px',
+  },
 } as const;

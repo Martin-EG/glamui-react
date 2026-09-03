@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T16:34:51.802Z",
+  "generatedAt": "2026-09-03T06:51:15.941Z",
   "generatedBy": "scripts/generate-token-manifest.cjs",
-  "entryCount": 177,
+  "entryCount": 180,
   "entries": [
     {
       "path": "breakpoints.lg",
@@ -1077,6 +1077,34 @@
       "layer": "semantic",
       "file": "src/tokens/size.ts",
       "value": "'40px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.control.lg",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'48px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.control.md",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'44px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.control.sm",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'40px'",
+      "deprecated": false
+    },
+    {
+      "path": "size.control.xs",
+      "layer": "semantic",
+      "file": "src/tokens/size.ts",
+      "value": "'36px'",
       "deprecated": false
     },
     {

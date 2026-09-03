@@ -1,4 +1,6 @@
 import { styled } from 'styled-components';
+
+import { buttonTokens } from './Button.tokens';
 import type { ButtonVariant, ButtonSize, ButtonRounded } from './Button.types';
 
 interface StyledButtonProps {
@@ -73,25 +75,25 @@ export const StyledButton = styled('button').attrs<StyledButtonProps>(
 
   /* Sizes */
   &.btn-xs {
-    height: 36px;
+    height: ${({ theme }) => buttonTokens.height(theme, 'xs')};
     padding: 0 ${({ theme }) => theme.spacing.sm};
     font-size: ${({ theme }) => theme.typography.sizes.xs};
   }
 
   &.btn-sm {
-    height: 40px;
+    height: ${({ theme }) => buttonTokens.height(theme, 'sm')};
     padding: 0 ${({ theme }) => theme.spacing.md};
     font-size: ${({ theme }) => theme.typography.sizes.sm};
   }
 
   &.btn-md {
-    height: 44px;
+    height: ${({ theme }) => buttonTokens.height(theme, 'md')};
     padding: 0 ${({ theme }) => theme.spacing.lg};
     font-size: ${({ theme }) => theme.typography.sizes.md};
   }
 
   &.btn-lg {
-    height: 48px;
+    height: ${({ theme }) => buttonTokens.height(theme, 'lg')};
     padding: 0 ${({ theme }) => theme.spacing.xl};
     font-size: ${({ theme }) => theme.typography.sizes.lg};
   }
