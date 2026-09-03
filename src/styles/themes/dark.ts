@@ -16,6 +16,7 @@ import { breakpoints } from '../breakpoints';
 export const darkTheme = {
   fonts: {
     primary: 'var(--font-nunito), system-ui, sans-serif',
+    mono: "'Menlo', 'Consolas', monospace",
   },
   colors: colorsDark,
   spacing,

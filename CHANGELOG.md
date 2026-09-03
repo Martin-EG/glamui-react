@@ -14,6 +14,13 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
+### Added — `theme.fonts.mono` and `Text as="code"`
+
+Traces to the same reference-site audit as `Box`/`Stack`: `Tokens.tsx`'s `Path` and `shared/CodeBlock.tsx`'s `Pre` each hardcoded the identical `font-family: 'Menlo', 'Consolas', monospace` inline, because `Text` had no `'code'` option in its `as` union and no mono font token existed to read — two independent, already-real consumers, clearing the "a real second use case, not a speculative one" bar for a new token.
+
+- `fonts.mono` added to both `lightTheme` and `darkTheme` (`src/styles/themes/{light,dark}.ts`) — identical value in both, a monospace stack has no light/dark variation.
+- `Text`'s `as` union gains `'code'`; `<Text as="code">` now switches to `theme.fonts.mono` via a `text-code` class, following the existing `text-{variant}` styling pattern.
+
 ### Added — `Stack`, a flex layout primitive
 
 Traces to the same audit that produced `Box`: the other repeated shape found duplicated across the reference site (`Form`, `ProfileRow`, `Tile`) was a plain flex row/column wrapper — `display: flex; flex-direction; gap; align-items` hand-written inline against `theme.spacing`, three times on one page. Per the Component Evolution Program's Capabilities → Patterns → Primitives → Components ordering, this is the primitive tier, alongside `Box`. See `Stack`'s own README for the full Design Brief.

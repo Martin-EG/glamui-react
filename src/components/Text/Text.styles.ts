@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 import type {
   TextAlign,
+  TextAs,
   TextColor,
   TextSize,
   TextTruncate,
@@ -10,6 +11,7 @@ import type {
 } from './Text.types';
 
 interface StyledTextProps {
+  readonly $as: TextAs;
   readonly $variant: TextVariant;
   readonly $size: TextSize;
   readonly $weight: TextWeight;
@@ -31,8 +33,8 @@ const getTruncateClassname = (truncate: TextTruncate) => {
 };
 
 export const StyledText = styled.p.attrs<StyledTextProps>(
-  ({ $variant, $size, $weight, $color, $truncate, $align }) => ({
-    className: `text text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
+  ({ $as, $variant, $size, $weight, $color, $truncate, $align }) => ({
+    className: `text text-${$as} text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
     'data-clamp': !!$truncate ? $truncate : undefined,
     style:
       typeof $truncate === 'number'
@@ -42,6 +44,10 @@ export const StyledText = styled.p.attrs<StyledTextProps>(
 )<StyledTextProps>`
   margin: 0;
   font-family: ${({ theme }) => theme.fonts.primary};
+
+  &.text-code {
+    font-family: ${({ theme }) => theme.fonts.mono};
+  }
 
   /* Variants */
   &.text-body {

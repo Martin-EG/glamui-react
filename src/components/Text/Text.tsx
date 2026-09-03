@@ -38,6 +38,7 @@ const Text: FC<TextProps> = ({
   return (
     <StyledText
       as={as}
+      $as={as}
       $variant={variant}
       $size={size}
       $weight={weight}

@@ -61,6 +61,16 @@ describe('Text', () => {
     });
   });
 
+  it('renders as="code" with the monospace font', () => {
+    const { container } = render(<Text as="code">const x = 1;</Text>);
+    const code = container.querySelector('code');
+    expect(code).toBeInTheDocument();
+    expect(code).toHaveClass('text-code');
+    expect(code).toHaveStyleRule('font-family', "'Menlo', 'Consolas', monospace", {
+      modifier: '&.text-code',
+    });
+  });
+
   it('renders label with htmlFor', () => {
     const { container } = render(
       <Text as="label" labelFor="input-id">

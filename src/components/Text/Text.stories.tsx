@@ -156,6 +156,22 @@ export const TextAlign: Story = {
   ),
 };
 
+export const Code: Story = {
+  args: {
+    children: 'Text',
+  },
+  render: (args) => (
+    <div style={{ display: 'flex', gap: '5px', flexDirection: 'column' }}>
+      <Text {...args} variant="heading" weight="bold" size="xl">
+        Code:
+      </Text>
+      <Text {...args} as="code">
+        const glamui = &apos;great&apos;;
+      </Text>
+    </div>
+  ),
+};
+
 export const TextTruncated: Story = {
   args: {
     children: 'Text',
