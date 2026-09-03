@@ -4,9 +4,9 @@ import Accordion from './Accordion';
 import type { AccordionItem } from './Accordion.types';
 
 const items = [
-  { id: 'a', question: 'Is my data private?', answer: 'Yes, always.' },
-  { id: 'b', question: 'Can I export my collection?', answer: 'Yes.' },
-  { id: 'c', question: 'Does it work offline?', answer: 'Not yet.' },
+  { id: 'a', title: 'Is my data private?', content: 'Yes, always.' },
+  { id: 'b', title: 'Can I export my collection?', content: 'Yes.' },
+  { id: 'c', title: 'Does it work offline?', content: 'Not yet.' },
 ] satisfies AccordionItem[];
 
 describe('Accordion', () => {
@@ -15,7 +15,7 @@ describe('Accordion', () => {
 
     for (const item of items) {
       expect(
-        screen.getByRole('button', { name: item.question }),
+        screen.getByRole('button', { name: item.title }),
       ).toHaveAttribute('aria-expanded', 'false');
     }
   });
@@ -23,17 +23,17 @@ describe('Accordion', () => {
   it('expands an item on click and marks it aria-expanded', () => {
     render(<Accordion items={items} />);
 
-    fireEvent.click(screen.getByRole('button', { name: items[0].question }));
+    fireEvent.click(screen.getByRole('button', { name: items[0].title }));
 
     expect(
-      screen.getByRole('button', { name: items[0].question }),
+      screen.getByRole('button', { name: items[0].title }),
     ).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByText('Yes, always.')).toBeVisible();
   });
 
   it('collapses an expanded item on a second click', () => {
     render(<Accordion items={items} />);
-    const trigger = screen.getByRole('button', { name: items[0].question });
+    const trigger = screen.getByRole('button', { name: items[0].title });
 
     fireEvent.click(trigger);
     fireEvent.click(trigger);
@@ -44,28 +44,28 @@ describe('Accordion', () => {
   it('only allows one item open at a time by default', () => {
     render(<Accordion items={items} />);
 
-    fireEvent.click(screen.getByRole('button', { name: items[0].question }));
-    fireEvent.click(screen.getByRole('button', { name: items[1].question }));
+    fireEvent.click(screen.getByRole('button', { name: items[0].title }));
+    fireEvent.click(screen.getByRole('button', { name: items[1].title }));
 
     expect(
-      screen.getByRole('button', { name: items[0].question }),
+      screen.getByRole('button', { name: items[0].title }),
     ).toHaveAttribute('aria-expanded', 'false');
     expect(
-      screen.getByRole('button', { name: items[1].question }),
+      screen.getByRole('button', { name: items[1].title }),
     ).toHaveAttribute('aria-expanded', 'true');
   });
 
   it('allows multiple items open at once when allowMultiple is set', () => {
     render(<Accordion items={items} allowMultiple />);
 
-    fireEvent.click(screen.getByRole('button', { name: items[0].question }));
-    fireEvent.click(screen.getByRole('button', { name: items[1].question }));
+    fireEvent.click(screen.getByRole('button', { name: items[0].title }));
+    fireEvent.click(screen.getByRole('button', { name: items[1].title }));
 
     expect(
-      screen.getByRole('button', { name: items[0].question }),
+      screen.getByRole('button', { name: items[0].title }),
     ).toHaveAttribute('aria-expanded', 'true');
     expect(
-      screen.getByRole('button', { name: items[1].question }),
+      screen.getByRole('button', { name: items[1].title }),
     ).toHaveAttribute('aria-expanded', 'true');
   });
 
@@ -73,7 +73,7 @@ describe('Accordion', () => {
     render(<Accordion items={items} defaultExpandedIds={['b']} />);
 
     expect(
-      screen.getByRole('button', { name: items[1].question }),
+      screen.getByRole('button', { name: items[1].title }),
     ).toHaveAttribute('aria-expanded', 'true');
   });
 
@@ -81,17 +81,17 @@ describe('Accordion', () => {
     const onItemToggle = jest.fn();
     render(<Accordion items={items} onItemToggle={onItemToggle} />);
 
-    fireEvent.click(screen.getByRole('button', { name: items[0].question }));
+    fireEvent.click(screen.getByRole('button', { name: items[0].title }));
     expect(onItemToggle).toHaveBeenCalledWith('a', true);
 
-    fireEvent.click(screen.getByRole('button', { name: items[0].question }));
+    fireEvent.click(screen.getByRole('button', { name: items[0].title }));
     expect(onItemToggle).toHaveBeenCalledWith('a', false);
   });
 
   it('moves focus between triggers with ArrowDown/ArrowUp', () => {
     render(<Accordion items={items} />);
     const triggers = items.map((item) =>
-      screen.getByRole('button', { name: item.question }),
+      screen.getByRole('button', { name: item.title }),
     );
 
     triggers[0].focus();
@@ -105,7 +105,7 @@ describe('Accordion', () => {
   it('wraps focus from the last trigger to the first with ArrowDown', () => {
     render(<Accordion items={items} />);
     const triggers = items.map((item) =>
-      screen.getByRole('button', { name: item.question }),
+      screen.getByRole('button', { name: item.title }),
     );
 
     triggers[2].focus();
@@ -116,7 +116,7 @@ describe('Accordion', () => {
   it('moves focus to the first/last trigger with Home/End', () => {
     render(<Accordion items={items} />);
     const triggers = items.map((item) =>
-      screen.getByRole('button', { name: item.question }),
+      screen.getByRole('button', { name: item.title }),
     );
 
     triggers[1].focus();
@@ -129,7 +129,7 @@ describe('Accordion', () => {
 
   it('associates each trigger with its panel via aria-controls/id', () => {
     render(<Accordion items={items} />);
-    const trigger = screen.getByRole('button', { name: items[0].question });
+    const trigger = screen.getByRole('button', { name: items[0].title });
     const controlsId = trigger.getAttribute('aria-controls');
 
     expect(controlsId).toBeTruthy();
@@ -143,12 +143,12 @@ describe('Accordion with ReactNode content', () => {
   const richItems: AccordionItem[] = [
     {
       id: 'a',
-      question: (
+      title: (
         <>
           Is my <strong>data</strong> private?
         </>
       ),
-      answer: (
+      content: (
         <>
           Yes — see our <a href="/privacy">privacy policy</a>.
         </>

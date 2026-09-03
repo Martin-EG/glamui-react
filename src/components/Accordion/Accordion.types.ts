@@ -13,13 +13,13 @@ export interface AccordionItem {
    * text when read as the button's name and must not itself contain
    * interactive elements (a nested link or button is invalid inside a
    * `<button>` and inaccessible). */
-  readonly question: ReactNode;
+  readonly title: ReactNode;
   /** The content revealed when this item is expanded. Plain text is the
    * common case; `ReactNode` (links, lists, nested formatting) is
    * supported — the collapsed panel is both `aria-hidden` and `inert`,
    * so any focusable descendants (e.g. a link) are correctly removed
    * from the tab order while collapsed and restored when expanded. */
-  readonly answer: ReactNode;
+  readonly content: ReactNode;
 }
 
 export interface AccordionProps {
