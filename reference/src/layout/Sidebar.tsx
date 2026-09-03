@@ -1,8 +1,13 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { Text } from '@glamui/react';
+import { Searchbar, Text } from '@glamui/react';
 
 import { componentGroups } from '../nav-data';
+
+const SearchWrap = styled.div`
+  margin: 0 0 ${({ theme }) => theme.spacing.lg};
+`;
 
 const Nav = styled.nav`
   width: 240px;
@@ -37,15 +42,38 @@ const StyledLink = styled(NavLink)`
 `;
 
 export function Sidebar() {
+  const [query, setQuery] = useState('');
+
+  const normalizedQuery = query.trim().toLowerCase();
+  const filteredGroups = normalizedQuery
+    ? componentGroups
+        .map((group) => ({
+          ...group,
+          items: group.items.filter((item) =>
+            item.label.toLowerCase().includes(normalizedQuery),
+          ),
+        }))
+        .filter((group) => group.items.length > 0)
+    : componentGroups;
+
   return (
     <Nav>
+      <SearchWrap>
+        <Searchbar
+          placeholder="Search components"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onClear={() => setQuery('')}
+        />
+      </SearchWrap>
+
       <StyledLink to="/" end>
         Introduction
       </StyledLink>
       <StyledLink to="/tokens">Tokens</StyledLink>
       <StyledLink to="/templates">Templates</StyledLink>
 
-      {componentGroups.map((group) => (
+      {filteredGroups.map((group) => (
         <div key={group.title}>
           <GroupTitleWrap>
             <Text
@@ -66,6 +94,12 @@ export function Sidebar() {
           ))}
         </div>
       ))}
+
+      {normalizedQuery && filteredGroups.length === 0 && (
+        <Text size="sm" color="muted">
+          No components match &quot;{query}&quot;.
+        </Text>
+      )}
     </Nav>
   );
 }
