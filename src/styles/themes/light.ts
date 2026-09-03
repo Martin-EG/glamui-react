@@ -14,6 +14,7 @@ import { breakpoints } from '../breakpoints';
 export const lightTheme = {
   fonts: {
     primary: 'var(--font-nunito), system-ui, sans-serif',
+    mono: "'Menlo', 'Consolas', monospace",
   },
   colors,
   spacing,

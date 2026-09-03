@@ -29,7 +29,7 @@ You can see live demos and usage in Storybook.
 | Prop       | Type                                            | Default     | Required | Description                                                   |
 | :--------- | :---------------------------------------------- | :---------- | :------: | :------------------------------------------------------------ |
 | `children` | `ReactNode`                                     | -           |   Yes    | The text content to display.                                  |
-| `as`       | `TextAs`                                        | `'p'`       |    No    | The HTML element to render (e.g., `'h1'`, `'span'`, `'div'`). |
+| `as`       | `TextAs`                                        | `'p'`       |    No    | The HTML element to render (e.g., `'h1'`, `'span'`, `'div'`, `'code'`). `as="code"` also switches the font to `theme.fonts.mono`. |
 | `variant`  | `TextVariant`                                   | `'body'`    |    No    | The semantic style variant (e.g., `'heading'`, `'caption'`).  |
 | `size`     | `TextSize`                                      | `'md'`      |    No    | The font size (`'xs'` to `'xxl'`).                            |
 | `weight`   | `'regular' \| 'medium' \| 'semibold' \| 'bold'` | `'regular'` |    No    | The font weight.                                              |
