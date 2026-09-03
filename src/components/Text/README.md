@@ -24,6 +24,8 @@ const MyComponent = () => {
 
 You can see live demos and usage in Storybook.
 
+All standard HTML attributes are also supported (e.g. `className`, `style`, `id`, `data-*`) and are merged with `Text`'s own generated classes/styles rather than overriding them.
+
 ## Props
 
 | Prop       | Type                                            | Default     | Required | Description                                                   |

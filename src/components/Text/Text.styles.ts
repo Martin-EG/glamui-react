@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { styled } from 'styled-components';
 
 import type {
@@ -18,6 +19,8 @@ interface StyledTextProps {
   readonly $color: TextColor;
   readonly $truncate: TextTruncate;
   readonly $align: TextAlign;
+  readonly className?: string;
+  readonly style?: CSSProperties;
 }
 
 const getTruncateClassname = (truncate: TextTruncate) => {
@@ -33,13 +36,18 @@ const getTruncateClassname = (truncate: TextTruncate) => {
 };
 
 export const StyledText = styled.p.attrs<StyledTextProps>(
-  ({ $as, $variant, $size, $weight, $color, $truncate, $align }) => ({
-    className: `text text-${$as} text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
+  ({ $as, $variant, $size, $weight, $color, $truncate, $align, className, style }) => ({
+    className: [
+      `text text-${$as} text-${$variant} text-${$size} text-${$weight} text-${$color} text-align-${$align} ${getTruncateClassname($truncate)}`,
+      className,
+    ]
+      .filter(Boolean)
+      .join(' '),
     'data-clamp': !!$truncate ? $truncate : undefined,
-    style:
-      typeof $truncate === 'number'
-        ? { WebkitLineClamp: $truncate }
-        : undefined,
+    style: {
+      ...(typeof $truncate === 'number' ? { WebkitLineClamp: $truncate } : {}),
+      ...style,
+    },
   }),
 )<StyledTextProps>`
   margin: 0;

@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
 import { StyledText } from './Text.styles';
 import type {
@@ -11,7 +11,7 @@ import type {
   TextWeight,
 } from './Text.types';
 
-export interface TextProps extends PropsWithChildren {
+export interface TextProps extends Omit<HTMLAttributes<HTMLElement>, 'color'> {
   readonly as?: TextAs;
   readonly variant?: TextVariant;
   readonly size?: TextSize;
@@ -32,6 +32,7 @@ const Text: FC<TextProps> = ({
   align = 'left',
   labelFor,
   children,
+  ...rest
 }) => {
   const labelProps = as === 'label' ? { htmlFor: labelFor } : {};
 
@@ -46,6 +47,7 @@ const Text: FC<TextProps> = ({
       $truncate={truncate}
       $align={align}
       {...labelProps}
+      {...rest}
     >
       {children}
     </StyledText>
