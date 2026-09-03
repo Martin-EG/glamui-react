@@ -1,4 +1,6 @@
+import type { ReactNode } from 'react';
 import styled from 'styled-components';
+import { Text } from '@glamui/react';
 
 export interface PropRow {
   name: string;
@@ -28,11 +30,11 @@ const Td = styled.td`
   color: ${({ theme }) => theme.colors.text.primary};
 `;
 
-const Code = styled.code`
-  font-family: 'Menlo', 'Consolas', monospace;
-  font-size: 12.5px;
-  color: ${({ theme }) => theme.colors.brand.secondary};
-`;
+const Code = ({ children }: { children: ReactNode }) => (
+  <Text as="code" size="xs" color="brandSecondary">
+    {children}
+  </Text>
+);
 
 export function PropsTable({ rows }: { rows: PropRow[] }) {
   return (

@@ -1,6 +1,4 @@
-import styled from 'styled-components';
 import {
-  Box,
   Calendar,
   Camera,
   Chevron,
@@ -10,11 +8,14 @@ import {
   Eye,
   EyeOff,
   Heart,
+  Icons,
   Image,
   Remove,
   Search,
   Sparkle,
+  Stack,
   Star,
+  Text,
   Upload,
   User,
 } from '@glamui/react';
@@ -23,7 +24,10 @@ import { ComponentPage } from '../../shared/ComponentPage';
 import { Example } from '../../shared/Example';
 
 const icons = {
-  Box,
+  // `Icons.Box` — the flat `Box` export now resolves to the Box layout
+  // component (same name, different thing); reach through the namespace
+  // to get the icon, same as any future icon/component name clash.
+  Box: Icons.Box,
   Calendar,
   Camera,
   Chevron,
@@ -41,16 +45,6 @@ const icons = {
   Upload,
   User,
 };
-
-const Tile = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing.xs};
-  width: 80px;
-  font-size: 11px;
-  color: ${({ theme }) => theme.colors.text.secondary};
-`;
 
 export function IconPage() {
   return (
@@ -76,10 +70,12 @@ import { Icons } from '@glamui/react';
 // ...`}
       >
         {Object.entries(icons).map(([name, IconComponent]) => (
-          <Tile key={name}>
+          <Stack key={name} align="center" gap="xs" style={{ width: 80 }}>
             <IconComponent size="lg" />
-            {name}
-          </Tile>
+            <Text as="span" size="xs" color="light">
+              {name}
+            </Text>
+          </Stack>
         ))}
       </Example>
     </ComponentPage>

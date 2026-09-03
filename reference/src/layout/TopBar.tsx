@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from '@glamui/react';
+import { Button, Text } from '@glamui/react';
 
 import { useAppTheme } from '../theme-context';
 
@@ -11,18 +11,14 @@ const Bar = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.colors.border.default};
 `;
 
-const Brand = styled.span`
-  font-weight: 700;
-  font-size: 15px;
-  color: ${({ theme }) => theme.colors.text.primary};
-`;
-
 export function TopBar() {
   const { themeName, toggleTheme } = useAppTheme();
 
   return (
     <Bar>
-      <Brand>GlamUI</Brand>
+      <Text as="span" weight="bold">
+        GlamUI
+      </Text>
       <Button
         variant="outline"
         size="sm"

@@ -1,27 +1,18 @@
+import type { CSSProperties, ReactNode } from 'react';
 import styled, { useTheme } from 'styled-components';
-import { tokenManifest, type AppTheme } from '@glamui/react';
+import { Stack, Text, tokenManifest, type AppTheme } from '@glamui/react';
 
-const Title = styled.h1`
+const TitleWrap = styled.div`
   margin: 0 0 ${({ theme }) => theme.spacing.sm};
-  font-size: 28px;
-  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
-const Lead = styled.p`
-  max-width: 640px;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  line-height: 1.6;
+const LeadWrap = styled.div`
+  // max-width: 640px;
   margin: 0 0 ${({ theme }) => theme.spacing.xl};
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 18px;
-  margin: ${({ theme }) => theme.spacing.xl} 0 ${({ theme }) => theme.spacing.md};
-  color: ${({ theme }) => theme.colors.text.primary};
-
-  &:first-of-type {
-    margin-top: 0;
-  }
+const SectionTitleWrap = styled.div<{ $first?: boolean }>`
+  margin: ${({ theme, $first }) => ($first ? 0 : theme.spacing.xl)} 0 ${({ theme }) => theme.spacing.md};
 `;
 
 const Grid = styled.div`
@@ -46,24 +37,25 @@ const CardBody = styled.div`
   padding: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
 `;
 
-const Path = styled.code`
-  display: block;
-  font-family: 'Menlo', 'Consolas', monospace;
-  font-size: 12.5px;
-  color: ${({ theme }) => theme.colors.text.primary};
-`;
+const Path = ({
+  children,
+  style,
+}: {
+  children: string;
+  style?: CSSProperties;
+}) => (
+  <Text as="code" size="xs" style={{ display: 'block', ...style }}>
+    {children}
+  </Text>
+);
 
-const Value = styled.span`
-  display: block;
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.text.muted};
-  margin-top: 2px;
-`;
+const Value = ({ children }: { children: ReactNode }) => (
+  <Text as="span" size="xs" color="muted" style={{ display: 'block', marginTop: 2 }}>
+    {children}
+  </Text>
+);
 
-const Row = styled.div`
-  display: flex;
-  align-items: baseline;
-  gap: ${({ theme }) => theme.spacing.md};
+const RowWrap = styled.div`
   padding: ${({ theme }) => theme.spacing.sm} 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border.subtle};
 
@@ -71,6 +63,16 @@ const Row = styled.div`
     border-bottom: none;
   }
 `;
+
+function Row({ children }: { children: ReactNode }) {
+  return (
+    <RowWrap>
+      <Stack direction="row" align="baseline" gap="md">
+        {children}
+      </Stack>
+    </RowWrap>
+  );
+}
 
 function getByPath(theme: AppTheme, path: string): string {
   const value = path
@@ -109,15 +111,25 @@ export function Tokens() {
 
   return (
     <div>
-      <Title>Tokens</Title>
-      <Lead>
-        Design tokens are the primitive and semantic values every GlamUI
-        component is built from. Read them through{' '}
-        <code>props.theme</code> or <code>useTheme()</code> — never hardcode
-        a value that already exists here.
-      </Lead>
+      <TitleWrap>
+        <Text as="h1" variant="heading" size="xl" weight="bold">
+          Tokens
+        </Text>
+      </TitleWrap>
+      <LeadWrap>
+        <Text color="light">
+          Design tokens are the primitive and semantic values every GlamUI
+          component is built from. Read them through{' '}
+          <code>props.theme</code> or <code>useTheme()</code> — never
+          hardcode a value that already exists here.
+        </Text>
+      </LeadWrap>
 
-      <SectionTitle>Colors</SectionTitle>
+      <SectionTitleWrap $first>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Colors
+        </Text>
+      </SectionTitleWrap>
       <Grid>
         {colorEntries.map((entry) => (
           <Card key={entry.path}>
@@ -130,7 +142,11 @@ export function Tokens() {
         ))}
       </Grid>
 
-      <SectionTitle>Spacing</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Spacing
+        </Text>
+      </SectionTitleWrap>
       <Card>
         <CardBody>
           {spacingEntries.map((entry) => (
@@ -150,7 +166,11 @@ export function Tokens() {
         </CardBody>
       </Card>
 
-      <SectionTitle>Radius</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Radius
+        </Text>
+      </SectionTitleWrap>
       <Grid>
         {radiusEntries.map((entry) => (
           <Card key={entry.path}>
@@ -166,7 +186,11 @@ export function Tokens() {
         ))}
       </Grid>
 
-      <SectionTitle>Shadows</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Shadows
+        </Text>
+      </SectionTitleWrap>
       <Grid>
         {shadowEntries.map((entry) => (
           <Card key={entry.path} style={{ border: 'none' }}>
@@ -185,7 +209,11 @@ export function Tokens() {
         ))}
       </Grid>
 
-      <SectionTitle>Typography</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Typography
+        </Text>
+      </SectionTitleWrap>
       <Card>
         <CardBody>
           {typographySizeEntries.map((entry) => (
@@ -219,7 +247,11 @@ export function Tokens() {
         </CardBody>
       </Card>
 
-      <SectionTitle>Motion</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Motion
+        </Text>
+      </SectionTitleWrap>
       <Card>
         <CardBody>
           {motionEntries.map((entry) => (

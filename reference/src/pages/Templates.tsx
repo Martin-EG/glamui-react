@@ -8,36 +8,20 @@ import {
   PasswordInput,
   Search,
   Searchbar,
+  Stack,
+  Text,
   TextInput,
 } from '@glamui/react';
 
 import { Example } from '../shared/Example';
 
-const Title = styled.h1`
+const TitleWrap = styled.div`
   margin: 0 0 ${({ theme }) => theme.spacing.sm};
-  font-size: 28px;
-  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
-const Lead = styled.p`
-  max-width: 640px;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  line-height: 1.6;
+const LeadWrap = styled.div`
+  // max-width: 640px;
   margin: 0 0 ${({ theme }) => theme.spacing.xl};
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.md};
-  width: 320px;
-`;
-
-const ProfileRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing.md};
-  width: 320px;
 `;
 
 export function Templates() {
@@ -45,11 +29,17 @@ export function Templates() {
 
   return (
     <div>
-      <Title>Templates</Title>
-      <Lead>
-        Small examples showing a few GlamUI components composed together, for
-        common patterns.
-      </Lead>
+      <TitleWrap>
+        <Text as="h1" variant="heading" size="xl" weight="bold">
+          Templates
+        </Text>
+      </TitleWrap>
+      <LeadWrap>
+        <Text color="light">
+          Small examples showing a few GlamUI components composed together,
+          for common patterns.
+        </Text>
+      </LeadWrap>
 
       <Example
         title="Login form"
@@ -60,14 +50,14 @@ export function Templates() {
   <Button type="submit" fullSize>Log in</Button>
 </form>`}
       >
-        <Form>
+        <Stack as="form" gap="md" style={{ width: 320 }}>
           <TextInput label="Email" placeholder="you@example.com" />
           <PasswordInput label="Password" />
           <MessageBar variant="error" message="Invalid email or password." />
           <Button type="submit" fullSize>
             Log in
           </Button>
-        </Form>
+        </Stack>
       </Example>
 
       <Example
@@ -78,8 +68,8 @@ export function Templates() {
 </div>
 <Button size="sm">Save changes</Button>`}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          <ProfileRow>
+        <Stack gap="md">
+          <Stack direction="row" align="center" gap="md" style={{ width: 320 }}>
             <Avatar
               src="/dog.jpg"
               alt="User"
@@ -88,9 +78,9 @@ export function Templates() {
               editAriaLabel="Change photo"
             />
             <TextInput label="Display name" defaultValue="Jamie Rivera" />
-          </ProfileRow>
+          </Stack>
           <Button size="sm">Save changes</Button>
-        </div>
+        </Stack>
       </Example>
 
       <Example
@@ -110,7 +100,7 @@ export function Templates() {
   action={<Button variant="outline">Clear filters</Button>}
 />`}
       >
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: '100%' }}>
+        <Stack gap="md" style={{ width: '100%' }}>
           <Searchbar
             placeholder="Search products"
             value={query}
@@ -123,7 +113,7 @@ export function Templates() {
             description="Try adjusting your search or filters."
             action={<Button variant="outline">Clear filters</Button>}
           />
-        </div>
+        </Stack>
       </Example>
     </div>
   );
