@@ -11,6 +11,7 @@ export { EyeOff } from './EyeOff';
 export { Exit } from './Exit';
 export { Heart } from './Heart';
 export { Image } from './Image';
+export { Mic } from './Mic';
 export { Remove } from './Remove';
 export { Search } from './Search';
 export { Sparkle } from './Sparkle';
