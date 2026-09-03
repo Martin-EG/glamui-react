@@ -16,5 +16,5 @@
       "@glamui/react": ["../src/index.ts"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../styled-components.d.ts"]
 }
