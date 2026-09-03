@@ -1,15 +1,7 @@
-import styled from 'styled-components';
-import { Clickable, Text } from '@glamui/react';
+import { Box, Clickable, Text } from '@glamui/react';
 
 import { ComponentPage } from '../../shared/ComponentPage';
 import { Example } from '../../shared/Example';
-
-const Card = styled.div`
-  padding: ${({ theme }) => theme.spacing.md};
-  border: 1px solid ${({ theme }) => theme.colors.border.default};
-  border-radius: ${({ theme }) => theme.radius.md};
-  width: 160px;
-`;
 
 export function ClickablePage() {
   return (
@@ -32,12 +24,12 @@ export function ClickablePage() {
 </Clickable>`}
       >
         <Clickable onClick={() => {}}>
-          <Card>
+          <Box padding="md" border radius="md" style={{ width: 160 }}>
             <Text weight="bold">Plan card</Text>
             <Text size="sm" color="muted">
               Tap to select
             </Text>
-          </Card>
+          </Box>
         </Clickable>
       </Example>
     </ComponentPage>

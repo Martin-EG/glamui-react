@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { Text } from '@glamui/react';
 
 import { componentGroups } from '../nav-data';
 
@@ -11,17 +12,8 @@ const Nav = styled.nav`
   overflow-y: auto;
 `;
 
-const GroupTitle = styled.div`
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.text.muted};
-  margin: ${({ theme }) => theme.spacing.lg} 0 ${({ theme }) => theme.spacing.xs};
-
-  &:first-child {
-    margin-top: 0;
-  }
+const GroupTitleWrap = styled.div`
+  margin: 0 0 ${({ theme }) => theme.spacing.sm};
 `;
 
 const StyledLink = styled(NavLink)`
@@ -55,7 +47,18 @@ export function Sidebar() {
 
       {componentGroups.map((group) => (
         <div key={group.title}>
-          <GroupTitle>{group.title}</GroupTitle>
+          <GroupTitleWrap>
+            <Text
+              as="div"
+              variant="label"
+              size="xs"
+              weight="bold"
+              color="muted"
+              style={{ textTransform: 'uppercase' }}
+            >
+              {group.title}
+            </Text>
+          </GroupTitleWrap>
           {group.items.map((item) => (
             <StyledLink key={item.slug} to={`/components/${item.slug}`}>
               {item.label}

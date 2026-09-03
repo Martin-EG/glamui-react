@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import styled from 'styled-components';
+import { Text } from '@glamui/react';
 
 import { CodeBlock } from './CodeBlock';
 import { PropsTable, type PropRow } from './PropsTable';
@@ -8,23 +9,17 @@ const Header = styled.header`
   margin-bottom: ${({ theme }) => theme.spacing.xl};
 `;
 
-const Title = styled.h1`
+const TitleWrap = styled.div`
   margin: 0 0 ${({ theme }) => theme.spacing.sm};
-  font-size: 28px;
-  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
-const Description = styled.p`
+const DescriptionWrap = styled.div`
   margin: 0 0 ${({ theme }) => theme.spacing.lg};
   max-width: 640px;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  line-height: 1.6;
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 18px;
+const SectionTitleWrap = styled.div`
   margin: ${({ theme }) => theme.spacing.xl} 0 ${({ theme }) => theme.spacing.md};
-  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 interface ComponentPageProps {
@@ -45,15 +40,29 @@ export function ComponentPage({
   return (
     <div>
       <Header>
-        <Title>{name}</Title>
-        <Description>{description}</Description>
+        <TitleWrap>
+          <Text as="h1" variant="heading" size="xl" weight="bold">
+            {name}
+          </Text>
+        </TitleWrap>
+        <DescriptionWrap>
+          <Text color="light">{description}</Text>
+        </DescriptionWrap>
         <CodeBlock code={importCode} />
       </Header>
 
-      <SectionTitle>Examples</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Examples
+        </Text>
+      </SectionTitleWrap>
       {children}
 
-      <SectionTitle>Props</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Props
+        </Text>
+      </SectionTitleWrap>
       <PropsTable rows={propRows} />
     </div>
   );

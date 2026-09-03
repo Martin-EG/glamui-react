@@ -3,23 +3,17 @@ import { Text } from '@glamui/react';
 
 import { CodeBlock } from '../shared/CodeBlock';
 
-const Title = styled.h1`
+const TitleWrap = styled.div`
   margin: 0 0 ${({ theme }) => theme.spacing.sm};
-  font-size: 32px;
-  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
-const Lead = styled.p`
-  max-width: 640px;
-  color: ${({ theme }) => theme.colors.text.secondary};
-  line-height: 1.6;
+const LeadWrap = styled.div`
+  // max-width: 640px;
   margin: 0 0 ${({ theme }) => theme.spacing.xl};
 `;
 
-const SectionTitle = styled.h2`
-  font-size: 18px;
+const SectionTitleWrap = styled.div`
   margin: ${({ theme }) => theme.spacing.xl} 0 ${({ theme }) => theme.spacing.md};
-  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 const List = styled.ul`
@@ -31,18 +25,32 @@ const List = styled.ul`
 export function Introduction() {
   return (
     <div>
-      <Title>GlamUI</Title>
-      <Lead>
-        GlamUI is GlamVault's shared React component library — the source of
-        truth for APIs, components, and design tokens. This reference shows
-        every component the library offers, its props, and copy-pasteable
-        usage examples.
-      </Lead>
+      <TitleWrap>
+        <Text as="h1" variant="heading" size="xxl" weight="bold">
+          GlamUI
+        </Text>
+      </TitleWrap>
+      <LeadWrap>
+        <Text color="light">
+          GlamUI is GlamVault's shared React component library — the source of
+          truth for APIs, components, and design tokens. This reference shows
+          every component the library offers, its props, and copy-pasteable
+          usage examples.
+        </Text>
+      </LeadWrap>
 
-      <SectionTitle>Install</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Install
+        </Text>
+      </SectionTitleWrap>
       <CodeBlock code="pnpm add @glamui/react styled-components" />
 
-      <SectionTitle>Set up the theme</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          Set up the theme
+        </Text>
+      </SectionTitleWrap>
       <Text>
         Every component reads colors, spacing, and typography from a
         styled-components theme. Wrap your app once at the root:
@@ -61,7 +69,11 @@ function Root() {
 }`}
       />
 
-      <SectionTitle>What's here</SectionTitle>
+      <SectionTitleWrap>
+        <Text as="h2" variant="subheading" size="lg" weight="semibold">
+          What's here
+        </Text>
+      </SectionTitleWrap>
       <List>
         <li>
           <strong>Tokens</strong> — colors, spacing, typography, radius,
