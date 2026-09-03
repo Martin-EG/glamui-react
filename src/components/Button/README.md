@@ -62,3 +62,9 @@ You can easily add icons to buttons using the `icon` prop. By default, the icon 
 <Button icon={<Camera />}>Start Icon</Button>
 <Button icon={<Camera />} iconPosition="end">End Icon</Button>
 ```
+
+## Foundation notes
+
+`Button`'s four per-size heights (`xs`/`sm`/`md`/`lg`) used to be raw, unreferenced literals (`36px`/`40px`/`44px`/`48px`) in `Button.styles.ts` — no token behind them, and `md`'s `44px` silently duplicated `theme.size.minTouchTarget` without referencing it. `Searchbar` separately hardcoded its own `36px`, the same value as `Button`'s `xs`, with no shared name tying the two together.
+
+Fixed by naming the scale as a semantic token, `theme.size.control.{xs,sm,md,lg}` (`src/tokens/size.ts`), and introducing `Button.tokens.ts` — GlamUI's first component-token file, per `docs/TOKEN_ARCHITECTURE.md`'s Layer 2. `Button.styles.ts` now reads its heights through `buttonTokens.height(theme, size)` instead of inline literals; `Searchbar.styles.ts` reads the same `theme.size.control.xs` directly, so the two components can no longer drift out of sync silently.

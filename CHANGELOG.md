@@ -14,6 +14,14 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
+### Added — `theme.size.control` and GlamUI's first component-token file, `Button.tokens.ts`
+
+`Button`'s four per-size heights were raw, unreferenced literals (`36px`/`40px`/`44px`/`48px`), and `md`'s `44px` silently duplicated `theme.size.minTouchTarget` without referencing it — a private, hand-duplicated lookup map of exactly the kind `docs/TOKEN_ARCHITECTURE.md`'s Layer 2 exists to close.
+
+- `theme.size.control.{xs,sm,md,lg}` (`src/tokens/size.ts`) names the scale as a semantic token.
+- `Button.tokens.ts` is GlamUI's first component-token file (`docs/TOKEN_ARCHITECTURE.md`, Layer 2) — `buttonTokens.height(theme, size)` resolves a `ButtonSize` to its semantic token, referencing only `theme`, never a raw literal. `Button.styles.ts` now reads its per-size heights through it instead of inline numbers.
+- No visual change — all four values are numerically identical to what they replace.
+
 ### Added — `Box`'s `border` prop accepts a single side
 
 A follow-up audit of the reference app (beyond the pages already covered by `Box`/`Stack`) found `Box`'s all-sides-only `border: boolean` couldn't express four real, independent consumers that only wanted one side: `TopBar`'s `Bar` (`border-bottom`), `Sidebar`'s `Nav` (`border-right`), `shared/PropsTable.tsx`'s `Th`/`Td` (`border-bottom`), and `Tokens.tsx`'s `Row` divider (`border-bottom`).
