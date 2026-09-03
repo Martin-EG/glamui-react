@@ -23,7 +23,7 @@ const Main = styled.main`
 `;
 
 const Content = styled.div`
-  max-width: 920px;
+  //max-width: 920px;
 `;
 
 export function Shell({ children }: { children: ReactNode }) {
