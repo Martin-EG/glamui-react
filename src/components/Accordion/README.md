@@ -29,7 +29,7 @@ You can see live demos (default, one expanded by default, `allowMultiple`) in St
 
 | Prop                 | Type                                          | Default | Required | Description |
 | :------------------- | :--------------------------------------------- | :------ | :------: | :----------- |
-| `items`               | `AccordionItem[]`                              | -       |   Yes    | Each item's `id` (unique, stable), `question` (trigger text), and `answer` (revealed content). |
+| `items`               | `AccordionItem[]`                              | -       |   Yes    | Each item's `id` (unique, stable), `question` (`ReactNode` trigger content — must resolve to text as the button's accessible name, and must not itself contain interactive elements), and `answer` (`ReactNode` revealed content). |
 | `allowMultiple`       | `boolean`                                      | `false` |    No    | Allow more than one item expanded at once. Defaults to single-open — the common FAQ pattern. |
 | `defaultExpandedIds`  | `string[]`                                     | `[]`    |    No    | Item IDs expanded on first render. Defaults to none — an FAQ answers a question the reader already has, it doesn't pre-commit them to reading everything. |
 | `onItemToggle`        | `(id: string, isExpanded: boolean) => void`    | -       |    No    | Fires on every expand/collapse. This is the hook a consumer wires analytics through (e.g. a `faq_expand` event) — `Accordion` itself knows nothing about analytics. |
@@ -39,7 +39,12 @@ You can see live demos (default, one expanded by default, `allowMultiple`) in St
 - Each trigger is a real `<button>` wrapped in an `<h3>` — the WAI-ARIA Authoring Practices' recommended accordion header pattern. `Accordion` always uses `h3`; it's built for the case where it sits under a section's own `h2` (the FAQ section's `SectionHeading` in `apps/landing`, for instance). If a future usage needs a different heading depth, that's a real gap to add a `headingLevel` prop for then — not added speculatively now.
 - Keyboard: `Enter`/`Space` toggle (native `<button>` behavior, no extra handling needed). `ArrowDown`/`ArrowUp` move focus between triggers, wrapping at the ends; `Home`/`End` jump to the first/last trigger — the Authoring Practices' recommended keyboard model for accordions, not just "Tab between buttons."
 - Each trigger carries `aria-expanded` and `aria-controls` pointing at its panel's `id`; each panel carries `aria-labelledby` pointing back at its trigger's `id`, plus `role="region"`.
-- Collapsed panels are `aria-hidden="true"` — not just visually collapsed. `Accordion`'s own content (`answer: string`) is always plain text, so hiding it from the accessibility tree while it's visually collapsed carries no risk of leaving a focusable, hidden interactive element behind (a real risk `aria-hidden` can introduce if a container has focusable descendants) — if a future usage needs `answer` to support rich, interactive content, that focus-management question needs to be solved explicitly at that point, not assumed safe by extension of this component's current behavior.
+- Collapsed panels are `aria-hidden="true"` **and** `inert` — not just visually collapsed. `answer` accepts `ReactNode`, so a collapsed panel's content can contain focusable elements (a link, in the `RichContent` story); `aria-hidden` alone would have hidden them from the accessibility tree while leaving them reachable by Tab, exactly the risk the original (string-only) version of this component flagged as unsolved. `inert` (native, no JS focus-trapping) closes it: a collapsed panel's descendants are untabbable and unclickable, and both are restored the moment the panel expands.
+- `question` renders inside the trigger `<button>`, so its accessible name is computed from its content (accessible-name-from-content) — inline formatting (`<strong>`, an icon) works the same way it would in any button's children. `question` must not contain an interactive element (a nested `<a>`/`<button>`): that would be invalid HTML (interactive content inside interactive content) and isn't prevented by the type system — keep `question` to non-interactive, text-equivalent content.
+
+## Migration Notes
+
+`question` and `answer` widened from `string` to `ReactNode` (a superset — every existing string-based usage keeps working unchanged). The answer wrapper switched from `<Text as="p">` to `<Text as="div">` so block-level `ReactNode` content (a list, a nested paragraph) doesn't land inside an invalid `<p>`; this doesn't change rendered text styling. See the `RichContent` story for the motivating shapes (inline formatting in `question`, a link and a list in `answer`).
 
 ## Foundation notes
 
@@ -71,7 +76,7 @@ The one genuine addition: `Icons.Chevron` (`packages/ui/src/components/Icon/Chev
 
 **Dependencies.** `Text` (trigger and answer typography), `Icons.Chevron` (new, see Foundation Notes).
 
-**Future evolution.** A `headingLevel` prop, if a second real usage needs a heading depth other than `h3`. Rich/interactive `answer` content, if a real usage needs more than plain text (would need the `aria-hidden`-on-collapse accessibility question re-examined first — see Accessibility Notes). Neither is built now against a hypothetical need.
+**Future evolution.** A `headingLevel` prop, if a second real usage needs a heading depth other than `h3`. Not built now against a hypothetical need. (Rich/interactive `answer` content — previously listed here as a deferred future need — has since been built: `question`/`answer` accept `ReactNode`, and the `aria-hidden`-on-collapse question this note flagged was resolved with `inert`; see Accessibility Notes and Migration Notes.)
 
 **Success criteria.** A consumer can build a complete, accessible FAQ from this component's props alone, with zero custom ARIA wiring or keyboard handling — the landing page's FAQ section (built immediately after this component) is the concrete proof.
 

@@ -127,9 +127,10 @@ const Accordion: FC<AccordionProps> = ({
                 role="region"
                 aria-labelledby={triggerId}
                 aria-hidden={!isExpanded}
+                inert={!isExpanded}
               >
                 <PanelContent>
-                  <Text as="p" variant="body" size="sm">
+                  <Text as="div" variant="body" size="sm">
                     {item.answer}
                   </Text>
                 </PanelContent>

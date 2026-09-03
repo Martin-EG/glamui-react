@@ -51,3 +51,36 @@ export const AllowMultipleOpen: Story = {
     defaultExpandedIds: ['privacy', 'export'],
   },
 };
+
+const richItems: AccordionItem[] = [
+  {
+    id: 'billing',
+    question: (
+      <>
+        What&apos;s included in the <strong>Pro</strong> plan?
+      </>
+    ),
+    answer: (
+      <>
+        Unlimited items, priority sync, and export tools. See the{' '}
+        <a href="#pricing">full pricing breakdown</a> for details.
+      </>
+    ),
+  },
+  {
+    id: 'cancel',
+    question: 'Can I cancel anytime?',
+    answer: (
+      <ul>
+        <li>Cancel from account settings, no confirmation call needed.</li>
+        <li>Access continues until the end of the current billing period.</li>
+      </ul>
+    ),
+  },
+];
+
+export const RichContent: Story = {
+  args: {
+    items: richItems,
+  },
+};
