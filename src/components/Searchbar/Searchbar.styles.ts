@@ -14,7 +14,7 @@ export const Input = styled.input`
   transition: all
     var(--motion-duration-slow, ${({ theme }) => theme.motion.duration.slow})
     var(--motion-easing-standard, ${({ theme }) => theme.motion.easing.standard});
-  height: 36px;
+  height: ${({ theme }) => theme.size.control.xs};
   border: 1px solid ${({ theme }) => theme.colors.border.default};
   background: ${({ theme }) => theme.colors.background.page};
 
