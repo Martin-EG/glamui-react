@@ -114,7 +114,7 @@ const Accordion: FC<AccordionProps> = ({
                 }}
               >
                 <Text as="span" variant="body" weight="semibold">
-                  {item.question}
+                  {item.title}
                 </Text>
                 <ChevronWrapper $isExpanded={isExpanded} aria-hidden="true">
                   <Chevron size="sm" />
@@ -131,7 +131,7 @@ const Accordion: FC<AccordionProps> = ({
               >
                 <PanelContent>
                   <Text as="div" variant="body" size="sm">
-                    {item.answer}
+                    {item.content}
                   </Text>
                 </PanelContent>
               </PanelInner>

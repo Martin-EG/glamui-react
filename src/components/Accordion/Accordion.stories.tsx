@@ -6,19 +6,19 @@ import type { AccordionItem } from './Accordion.types';
 const faqItems: AccordionItem[] = [
   {
     id: 'privacy',
-    question: 'Is my collection data private?',
-    answer:
+    title: 'Is my collection data private?',
+    content:
       'Yes. Your collection is visible only to you unless you choose to share it.',
   },
   {
     id: 'export',
-    question: 'Can I export my data?',
-    answer: 'Yes — you can export your full collection at any time.',
+    title: 'Can I export my data?',
+    content: 'Yes — you can export your full collection at any time.',
   },
   {
     id: 'offline',
-    question: 'Does GlamVault work offline?',
-    answer:
+    title: 'Does GlamVault work offline?',
+    content:
       'Not yet. GlamVault currently requires an internet connection to sync your collection.',
   },
 ];
@@ -55,12 +55,12 @@ export const AllowMultipleOpen: Story = {
 const richItems: AccordionItem[] = [
   {
     id: 'billing',
-    question: (
+    title: (
       <>
         What&apos;s included in the <strong>Pro</strong> plan?
       </>
     ),
-    answer: (
+    content: (
       <>
         Unlimited items, priority sync, and export tools. See the{' '}
         <a href="#pricing">full pricing breakdown</a> for details.
@@ -69,8 +69,8 @@ const richItems: AccordionItem[] = [
   },
   {
     id: 'cancel',
-    question: 'Can I cancel anytime?',
-    answer: (
+    title: 'Can I cancel anytime?',
+    content: (
       <ul>
         <li>Cancel from account settings, no confirmation call needed.</li>
         <li>Access continues until the end of the current billing period.</li>

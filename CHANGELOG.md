@@ -14,13 +14,13 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
-### Added — `Accordion`'s `question`/`answer` accept `ReactNode`
+### Added — `Accordion`'s `title`/`content` (renamed from `question`/`answer`) accept `ReactNode`
 
-Widens `AccordionItem.question` and `.answer` from `string` to `ReactNode` (a superset — every existing consumer keeps working unchanged). This is the exact expansion `Accordion`'s own README had already flagged and deferred at launch: rich `answer` content re-opens the "collapsed panel `aria-hidden` with focusable descendants" risk the original Accessibility Notes named as unsolved.
+Renames `AccordionItem.question`/`.answer` to `.title`/`.content` — `Accordion` isn't scoped to the FAQ case alone, and `title`/`content` reads correctly for any progressive-disclosure list, not just question/answer pairs — and widens both from `string` to `ReactNode` (a superset — every existing string-based usage keeps working unchanged). This is the exact expansion `Accordion`'s own README had already flagged and deferred at launch: rich `content` re-opens the "collapsed panel `aria-hidden` with focusable descendants" risk the original Accessibility Notes named as unsolved.
 
-- Fixed by marking the collapsed panel both `aria-hidden` **and** `inert` (native, React 19-typed) — any focusable content inside a collapsed `answer` (a link, in the new `RichContent` story) is untabbable and unclickable while collapsed, restored on expand.
-- The answer wrapper switched from `<Text as="p">` to `<Text as="div">` so block-level `ReactNode` content (a list, a nested paragraph) can't land inside an invalid `<p>`.
-- `question` renders inside the trigger `<button>` via accessible-name-from-content — documented as needing to stay non-interactive (no nested link/button), which the type system can't enforce.
+- Fixed by marking the collapsed panel both `aria-hidden` **and** `inert` (native, React 19-typed) — any focusable content inside a collapsed panel (a link, in the new `RichContent` story) is untabbable and unclickable while collapsed, restored on expand.
+- The content wrapper switched from `<Text as="p">` to `<Text as="div">` so block-level `ReactNode` content (a list, a nested paragraph) can't land inside an invalid `<p>`.
+- `title` renders inside the trigger `<button>` via accessible-name-from-content — documented as needing to stay non-interactive (no nested link/button), which the type system can't enforce.
 
 ### Added — `theme.size.control` and GlamUI's first component-token file, `Button.tokens.ts`
 
