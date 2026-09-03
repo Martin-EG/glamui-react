@@ -56,6 +56,18 @@ export const Background: Story = {
   ),
 };
 
+export const BorderSide: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 12 }}>
+      {(['top', 'right', 'bottom', 'left'] as const).map((side) => (
+        <Box key={side} padding="md" border={side}>
+          <Text size="sm">{side}</Text>
+        </Box>
+      ))}
+    </div>
+  ),
+};
+
 export const NoBorder: Story = {
   render: () => (
     <Box padding="md" radius="md" background="subtle">

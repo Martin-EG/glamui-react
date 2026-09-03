@@ -14,6 +14,13 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
+### Added — `Box`'s `border` prop accepts a single side
+
+A follow-up audit of the reference app (beyond the pages already covered by `Box`/`Stack`) found `Box`'s all-sides-only `border: boolean` couldn't express four real, independent consumers that only wanted one side: `TopBar`'s `Bar` (`border-bottom`), `Sidebar`'s `Nav` (`border-right`), `shared/PropsTable.tsx`'s `Th`/`Td` (`border-bottom`), and `Tokens.tsx`'s `Row` divider (`border-bottom`).
+
+- `border` now accepts `boolean | 'top' | 'right' | 'bottom' | 'left'` — `true` keeps the existing all-sides behavior (non-breaking), a side name renders `border-{side}` only.
+- No new tokens — still reads `theme.colors.border.default`.
+
 ### Fixed — `Text` silently dropped `className`/`style`/other HTML attributes
 
 `Text.tsx` only ever destructured its own named props — a consumer-passed `className`, `style`, `id`, or `data-*` never reached the rendered element, and worse: styled-components' `.attrs()` merges its return value *over* incoming props, so even wiring `{...rest}` through without also fixing `.attrs()` would have silently swallowed a consumer's `className`/`style` rather than combining them. This is why `Tokens.tsx`'s `Value` (a `span`, small, muted — otherwise exactly `Text`) stayed a hand-rolled `styled.span`: it needed `display: block; margin-top: 2px` with no way to attach it. `Box`/`Stack`/`Clickable` already extend `HTMLAttributes` and forward the rest; `Text` was the odd one out.

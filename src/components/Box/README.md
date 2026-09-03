@@ -26,7 +26,7 @@ All standard HTML attributes are also supported (e.g. `className`, `id`, `data-*
 | `padding`    | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`            | -         |    No    | Padding, read from `theme.spacing`. Omit for no padding. |
 | `radius`     | `'sm' \| 'md' \| 'lg' \| 'xl'`                    | -         |    No    | Border radius, read from `theme.radius`. Omit for no radius. |
 | `background` | `'default' \| 'subtle' \| 'muted' \| 'elevated'`  | -         |    No    | Background, read from `theme.colors.surface`. Omit for a transparent background. |
-| `border`     | `boolean`                                         | `false`   |    No    | A 1px border using `theme.colors.border.default`. |
+| `border`     | `boolean \| 'top' \| 'right' \| 'bottom' \| 'left'` | `false` |    No    | A 1px border using `theme.colors.border.default` — `true` for all sides, or a side name for one side only. |
 | `children`   | `ReactNode`                                       | -         |    No    | Box content. |
 
 ## Design Brief
@@ -47,7 +47,7 @@ All standard HTML attributes are also supported (e.g. `className`, `id`, `data-*
 
 **States.** None — `Box`'s appearance is fully determined by its props, not runtime state.
 
-**Variants.** Independent, composable props (`padding`, `radius`, `background`, `border`, `as`) rather than a fixed variant enum — the shapes needed (a bordered card-like box, a padded-only wrapper, a subtly-tinted panel) don't share a small enough set of names to be one `variant` prop.
+**Variants.** Independent, composable props (`padding`, `radius`, `background`, `border`, `as`) rather than a fixed variant enum — the shapes needed (a bordered card-like box, a padded-only wrapper, a subtly-tinted panel) don't share a small enough set of names to be one `variant` prop. `border` accepts a single side (`'top' | 'right' | 'bottom' | 'left'`) alongside `boolean` — added once four real consumers (`TopBar`, `Sidebar`, `PropsTable`, `Tokens.tsx`'s `Row`) all needed a one-side divider border, which the original all-sides-only boolean couldn't express.
 
 **Tokens used.** `theme.spacing`, `theme.radius`, `theme.colors.surface`, `theme.colors.border.default` — all pre-existing, no gap found.
 

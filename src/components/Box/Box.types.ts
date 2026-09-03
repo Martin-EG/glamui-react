@@ -6,7 +6,7 @@ import type { HTMLAttributes } from 'react';
  * @property {BoxPadding} padding - The padding of the box
  * @property {BoxRadius} radius - The border radius of the box
  * @property {BoxBackground} background - The background surface of the box
- * @property {boolean} border - Whether the box has a 1px default border
+ * @property {BoxBorder} border - Whether the box has a 1px default border, on all sides (`true`) or one side
  */
 
 export type BoxAs = 'div' | 'section' | 'article';
@@ -17,10 +17,14 @@ export type BoxRadius = 'sm' | 'md' | 'lg' | 'xl';
 
 export type BoxBackground = 'default' | 'subtle' | 'muted' | 'elevated';
 
+export type BoxBorderSide = 'top' | 'right' | 'bottom' | 'left';
+
+export type BoxBorder = boolean | BoxBorderSide;
+
 export interface BoxProps extends HTMLAttributes<HTMLElement> {
   readonly as?: BoxAs;
   readonly padding?: BoxPadding;
   readonly radius?: BoxRadius;
   readonly background?: BoxBackground;
-  readonly border?: boolean;
+  readonly border?: BoxBorder;
 }

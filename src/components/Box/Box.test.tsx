@@ -55,6 +55,16 @@ describe('Box styling', () => {
     expect(container.firstChild).toHaveStyleRule('border', /1px solid/);
   });
 
+  it.each(['top', 'right', 'bottom', 'left'] as const)(
+    'applies a 1px border only on the %s side when border is that side',
+    (side) => {
+      const { container } = render(<Box border={side}>content</Box>);
+
+      expect(container.firstChild).toHaveStyleRule(`border-${side}`, /1px solid/);
+      expect(container.firstChild).not.toHaveStyleRule('border');
+    },
+  );
+
   it('applies no padding/radius/background when omitted', () => {
     const { container } = render(<Box>content</Box>);
 
