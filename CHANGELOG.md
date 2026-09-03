@@ -14,6 +14,14 @@ A token is never deleted the same release it's deprecated. It's marked `@depreca
 
 ## Unreleased
 
+### Added — `Box`, a token-driven container primitive
+
+Traces to a repeated capability gap surfaced while auditing hand-rolled `styled-components` on the reference site: the same bordered/padded/rounded/surfaced container shape (`Card`, `CardBody`, `Swatch`, a plan-card wrapper) was hand-built three separate times on one page alone, mirroring the same pattern already duplicated internally inside `Card`, `MessageBar`, and `Modal`. Per the Component Evolution Program's Capabilities → Patterns → Primitives → Components ordering, this is the primitive tier. See `Box`'s own README for the full Design Brief.
+
+- Independent, composable props (`padding`, `radius`, `background`, `border`, `as`) rather than a fixed variant enum — no shared small set of names covers every existing usage.
+- Unstyled by default — every prop is optional, matching `Clickable`'s "no visual opinion until asked" precedent.
+- Reads only pre-existing tokens (`spacing`, `radius`, `colors.surface`, `colors.border`) — no new tokens.
+
 ### Added — `Accordion`, the landing page's confirmed one genuine component gap
 
 Traces to a named gap in the Landing Page Execution Plan (§3, §8): the FAQ section needed expand/collapse semantics, and nothing in the catalog provided them — `Menu`'s interaction model (a transient dropdown) was checked first and ruled out as a different pattern, not a fit, before this component was justified. Built through the full Component Evolution Program lifecycle; see `Accordion`'s own README for the complete Design Brief.
