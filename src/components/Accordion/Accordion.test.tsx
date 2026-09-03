@@ -3,11 +3,11 @@ import { fireEvent, render, screen } from '../../test-utils';
 import Accordion from './Accordion';
 import type { AccordionItem } from './Accordion.types';
 
-const items: AccordionItem[] = [
+const items = [
   { id: 'a', question: 'Is my data private?', answer: 'Yes, always.' },
   { id: 'b', question: 'Can I export my collection?', answer: 'Yes.' },
   { id: 'c', question: 'Does it work offline?', answer: 'Not yet.' },
-];
+] satisfies AccordionItem[];
 
 describe('Accordion', () => {
   it('renders every question, with every answer collapsed by default', () => {
@@ -136,5 +136,66 @@ describe('Accordion', () => {
     expect(document.getElementById(controlsId as string)).toHaveTextContent(
       'Yes, always.',
     );
+  });
+});
+
+describe('Accordion with ReactNode content', () => {
+  const richItems: AccordionItem[] = [
+    {
+      id: 'a',
+      question: (
+        <>
+          Is my <strong>data</strong> private?
+        </>
+      ),
+      answer: (
+        <>
+          Yes — see our <a href="/privacy">privacy policy</a>.
+        </>
+      ),
+    },
+  ];
+
+  it('renders a ReactNode question as the trigger content and accessible name', () => {
+    render(<Accordion items={richItems} />);
+
+    expect(
+      screen.getByRole('button', { name: 'Is my data private?' }),
+    ).toBeInTheDocument();
+    expect(screen.getByText('data').tagName).toBe('STRONG');
+  });
+
+  it('renders a ReactNode answer, including interactive content', () => {
+    render(<Accordion items={richItems} />);
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Is my data private?' }),
+    );
+
+    expect(
+      screen.getByRole('link', { name: 'privacy policy' }),
+    ).toBeInTheDocument();
+  });
+
+  it('marks the collapsed panel inert, removing focusable answer content from the tab order', () => {
+    render(<Accordion items={richItems} />);
+
+    const panel = screen.getByRole('link', {
+      name: 'privacy policy',
+      hidden: true,
+    }).closest('[role="region"]');
+
+    expect(panel).toHaveAttribute('inert', '');
+  });
+
+  it('removes inert from the panel once expanded', () => {
+    render(<Accordion items={richItems} />);
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Is my data private?' }),
+    );
+
+    const panel = screen.getByRole('region', { hidden: true });
+    expect(panel).not.toHaveAttribute('inert');
   });
 });

@@ -1,14 +1,25 @@
+import type { ReactNode } from 'react';
+
 export interface AccordionItem {
   /** Stable identifier — used for `aria-controls`/`id` wiring and as
    * the value passed to `onItemToggle`. Must be unique within one
    * `Accordion`. */
   readonly id: string;
-  /** The always-visible trigger text (a question, in the common FAQ
-   * case) — rendered as the accessible name of its expand/collapse
-   * button. */
-  readonly question: string;
-  /** The content revealed when this item is expanded. */
-  readonly answer: string;
+  /** The always-visible trigger content (a question, in the common FAQ
+   * case) — rendered inside the expand/collapse `<button>`, so it also
+   * supplies that button's accessible name via accessible-name-from-
+   * content. Plain text is the common case; `ReactNode` (e.g. `<strong>`
+   * emphasis, an inline icon) is supported, but content must resolve to
+   * text when read as the button's name and must not itself contain
+   * interactive elements (a nested link or button is invalid inside a
+   * `<button>` and inaccessible). */
+  readonly question: ReactNode;
+  /** The content revealed when this item is expanded. Plain text is the
+   * common case; `ReactNode` (links, lists, nested formatting) is
+   * supported — the collapsed panel is both `aria-hidden` and `inert`,
+   * so any focusable descendants (e.g. a link) are correctly removed
+   * from the tab order while collapsed and restored when expanded. */
+  readonly answer: ReactNode;
 }
 
 export interface AccordionProps {
