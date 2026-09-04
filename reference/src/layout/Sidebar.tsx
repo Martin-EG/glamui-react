@@ -9,12 +9,35 @@ const SearchWrap = styled.div`
   margin: 0 0 ${({ theme }) => theme.spacing.lg};
 `;
 
-const Nav = styled.nav`
+const Nav = styled.nav<{ $isOpen: boolean }>`
   width: 240px;
   flex-shrink: 0;
   padding: ${({ theme }) => theme.spacing.lg};
   border-right: 1px solid ${({ theme }) => theme.colors.border.default};
   overflow-y: auto;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: ${({ theme }) => theme.zIndex.modal};
+    background: ${({ theme }) => theme.colors.surface.default};
+    transform: translateX(${({ $isOpen }) => ($isOpen ? '0' : '-100%')});
+    transition: transform 0.2s ease;
+  }
+`;
+
+const Overlay = styled.div<{ $isOpen: boolean }>`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}px) {
+    display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: ${({ theme }) => theme.zIndex.modal - 1};
+  }
 `;
 
 const GroupTitleWrap = styled.div`
@@ -41,7 +64,13 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export function Sidebar() {
+export function Sidebar({
+  isOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+}) {
   const [query, setQuery] = useState('');
 
   const normalizedQuery = query.trim().toLowerCase();
@@ -57,49 +86,60 @@ export function Sidebar() {
     : componentGroups;
 
   return (
-    <Nav>
-      <SearchWrap>
-        <Searchbar
-          placeholder="Search components"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onClear={() => setQuery('')}
-        />
-      </SearchWrap>
+    <>
+      <Overlay $isOpen={isOpen} onClick={onClose} />
+      <Nav $isOpen={isOpen}>
+        <SearchWrap>
+          <Searchbar
+            placeholder="Search components"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onClear={() => setQuery('')}
+          />
+        </SearchWrap>
 
-      <StyledLink to="/" end>
-        Introduction
-      </StyledLink>
-      <StyledLink to="/tokens">Tokens</StyledLink>
-      <StyledLink to="/templates">Templates</StyledLink>
+        <StyledLink to="/" end onClick={onClose}>
+          Introduction
+        </StyledLink>
+        <StyledLink to="/tokens" onClick={onClose}>
+          Tokens
+        </StyledLink>
+        <StyledLink to="/templates" onClick={onClose}>
+          Templates
+        </StyledLink>
 
-      {filteredGroups.map((group) => (
-        <div key={group.title}>
-          <GroupTitleWrap>
-            <Text
-              as="div"
-              variant="label"
-              size="xs"
-              weight="bold"
-              color="muted"
-              style={{ textTransform: 'uppercase' }}
-            >
-              {group.title}
-            </Text>
-          </GroupTitleWrap>
-          {group.items.map((item) => (
-            <StyledLink key={item.slug} to={`/components/${item.slug}`}>
-              {item.label}
-            </StyledLink>
-          ))}
-        </div>
-      ))}
+        {filteredGroups.map((group) => (
+          <div key={group.title}>
+            <GroupTitleWrap>
+              <Text
+                as="div"
+                variant="label"
+                size="xs"
+                weight="bold"
+                color="muted"
+                style={{ textTransform: 'uppercase' }}
+              >
+                {group.title}
+              </Text>
+            </GroupTitleWrap>
+            {group.items.map((item) => (
+              <StyledLink
+                key={item.slug}
+                to={`/components/${item.slug}`}
+                onClick={onClose}
+              >
+                {item.label}
+              </StyledLink>
+            ))}
+          </div>
+        ))}
 
-      {normalizedQuery && filteredGroups.length === 0 && (
-        <Text size="sm" color="muted">
-          No components match &quot;{query}&quot;.
-        </Text>
-      )}
-    </Nav>
+        {normalizedQuery && filteredGroups.length === 0 && (
+          <Text size="sm" color="muted">
+            No components match &quot;{query}&quot;.
+          </Text>
+        )}
+      </Nav>
+    </>
   );
 }

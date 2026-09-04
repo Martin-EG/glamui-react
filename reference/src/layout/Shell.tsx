@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import styled from 'styled-components';
 
 import { Sidebar } from './Sidebar';
@@ -27,11 +27,13 @@ const Content = styled.div`
 `;
 
 export function Shell({ children }: { children: ReactNode }) {
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <Layout>
-      <TopBar />
+      <TopBar onMenuClick={() => setSidebarOpen((open) => !open)} />
       <Body>
-        <Sidebar />
+        <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
         <Main>
           <Content>{children}</Content>
         </Main>
